@@ -1,7 +1,7 @@
 <?php
 
 $mainNumber = "5";
-$subNumber = "6";
+$subNumber = "5";
 $print = "<ul>";
 for($i=1;$i<=$mainNumber;$i++){
         $print .= "<li> $i<ul>";
