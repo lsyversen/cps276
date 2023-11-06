@@ -8,7 +8,7 @@ $results = $fileProc->init();
 <html>
 <head>
   <title>File Upload and Display</title>
-  <!-- Include Bootstrap CSS here -->
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -30,7 +30,7 @@ $results = $fileProc->init();
     echo $results[1]; // Display list of files
     ?>
   </div>
-  <!-- Include Bootstrap JS here -->
+  <!-- Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
