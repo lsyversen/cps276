@@ -5,7 +5,7 @@ $note = new Note();
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Assuming $startDate and $endDate are set from your form or other logic
+    
     $startDate = isset($_POST['begDate']) ? $_POST['begDate'] : date('Y-m-d');
     $endDate = isset($_POST['endDate']) ? $_POST['endDate'] : date('Y-m-d');
     
