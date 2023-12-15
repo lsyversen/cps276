@@ -10,23 +10,23 @@
         ],
         "email"=>[
             "errorMessage"=>"<span class='errorMsg'>Please enter a valid email</span>",
+            "value"=>"lsyversen@admin.com",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"lsyversen@admin.com",
             "regex"=>"email" 
         ],
         "password"=>[
+            "value"=>"password",
             "errorMessage"=>"<span class='errorMsg'>Password must not be blank</span>",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"password",
             "regex"=>"nonBlank"
         ]
     ];
 
     // Function to initialize the login page
     function init(){
-        global $elementsArr, $stickyForm;
+        global $stickyForm ,$elementsArr;
 
         // Check if the login form is submitted
         if(isset($_POST['login'])){ 
@@ -67,14 +67,14 @@
             <form name="login" action="index.php?page=login" method="post">
                 <div class="form-group">
                     <label for="email">Email {$elementsArr['email']['errorOutput']}</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{$elementsArr['email']['value']}">
+                    <input name="email" id="email" type="text" class="form-control" value="{$elementsArr['email']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="password">Password {$elementsArr['password']['errorOutput']}</label>
-                    <input type="password" class="form-control" name="password" id="password" value="{$elementsArr['password']['value']}">
+                    <input name="password" id="password" type="password" class="form-control" value="{$elementsArr['password']['value']}">
                 </div>
                 <div class="form-group padtop">
-                    <input type="submit" class="btn btn-primary" name="login" id="login" value="Log In">
+                    <input name="login" id="login" type="submit" class="btn btn-primary" value="Log In">
                 </div> 
             </form>
         HTML;   

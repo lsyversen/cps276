@@ -80,28 +80,28 @@
             "type"=>"masterStatus"
         ],
         "name"=>[
-            "errorMessage"=>"<span class='errorMsg'>Name cannot be blank and must be a valid name</span>",
+            "errorMessage"=>"<span class='errorMsg'>Please enter a valid name.</span>",
+            "value"=>"Liam Syversen",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"Liam Syversen",
             "regex"=>"name"
         ],
         "email"=>[
             "errorMessage"=>"<span class='errorMsg'>Invalid email format</span>",
+            "value"=>"lsyversen@wccnet.edu",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"lsyversen@wccnet.edu",
             "regex"=>"email"
         ],
         "password"=>[
-            "errorMessage"=>"<span class='errorMsg'>Please choose a stronger password (at least 8 characters)</span>",
+            "errorMessage"=>"<span class='errorMsg'>Please enter a valid password.</span>",
+            "value"=>"password",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"password",
             "regex"=>"password"
         ],
         "status"=>[
-            "errorMessage"=>"<span class='errorMsg'>An error occurred</span>",
+            "errorMessage"=>"<span class='errorMsg'>Error occurred</span>",
             "errorOutput"=>"",
             "type"=>"select",
             "options"=>["admin"=>"Admin","staff"=>"Staff"],
@@ -118,25 +118,25 @@
         $form = <<<HTML
             <form name="addAdmin" method="post" action="index.php?page=addAdmin">
                 <div class="form-group">
-                    <label for="name">Name (letters only) {$elementsArr['name']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{$elementsArr['name']['value']}">
+                    <label for="name">Name {$elementsArr['name']['errorOutput']}</label>
+                    <input name="name" type="text" class="form-control" id="name" value="{$elementsArr['name']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email {$elementsArr['email']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{$elementsArr['email']['value']}">
+                    <input name="email" type="text" class="form-control" id="email" value="{$elementsArr['email']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="password">Password {$elementsArr['password']['errorOutput']}</label>
-                    <input type="password" class="form-control" id="password" name="password" value="{$elementsArr['password']['value']}">
+                    <input name="password" type="password" class="form-control" id="password" value="{$elementsArr['password']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="status">Status {$elementsArr['status']['errorOutput']}</label>
-                    <select class="form-control" id="status" name="status">
+                    <select name="status" class="form-control" id="status">
                         $options
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="submit" id="submit" class="btn btn-success">Submit</button>
+                    <button name="submit" class="btn btn-success" type="submit" id="submit">Submit</button>
                 </div>
             </form>
         HTML;

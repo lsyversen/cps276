@@ -79,30 +79,30 @@
         ],
         "name"=>[
             "errorMessage"=>"<span class='errorMsg'>Name must be provided and adhere to standard naming conventions</span>",
+            "value"=>"Liam Syversen",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"Liam Syversen",
             "regex"=>"name"
         ],
         "phone"=>[
             "errorMessage"=>"<span class='errorMsg'>Phone must be provided and formatted as 111.111.1111</span>",
+            "value"=>"810.123.4567",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"810.123.4567",
             "regex"=>"phone"
         ],
         "address"=>[
             "errorMessage"=>"<span class='errorMsg'>Address must be provided and valid</span>",
+            "value"=>"1234 Main Street",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"1234 Main Street",
             "regex"=>"address"
         ],
         "city"=>[
             "errorMessage"=>"<span class='errorMsg'>City name must be provided and valid</span>",
+            "value"=>"Brighton",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"Brighton",
             "regex"=>"name"
         ],
         "state"=>[
@@ -113,30 +113,30 @@
         ],
         "email"=>[
             "errorMessage"=>"<span class='errorMsg'>Please enter a valid, non-blank email</span>",
+            "value"=>"lsyversen@wccnet.edu",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"lsyversen@wccnet.edu",
             "regex"=>"email"
         ],
         "date"=>[
             "errorMessage"=>"<span class='errorMsg'>Please enter a valid, non-blank date</span>",
+            "value"=>"06/09/2002",
             "errorOutput"=>"",
             "type"=>"text",
-            "value"=>"06/09/2002",
             "regex"=>"date"
         ],
         "contactMethod"=>[
             "errorMessage"=>"<span class='errorMsg'>An error occurred</span>",
+            "action"=>"none",
             "errorOutput"=>"",
             "type"=>"checkbox",
-            "action"=>"none",
             "status"=>["Newsletter"=>"", "Email"=>"", "SMS"=>""]
         ],
         "ageGroup"=>[
             "errorMessage"=>"<span class='errorMsg'>You must select an age range</span>",
+            "type"=>"radio",
             "errorOutput"=>"",
             "action"=>"required",
-            "type"=>"radio",
             "value"=>["10-18"=>"", "19-30"=>"", "30-50"=>"", "51+"=>""]
         ]
     ];
@@ -151,70 +151,70 @@
             <form method="post" action="index.php?page=addContact">
                 <div class="form-group">
                     <label for="name">Name (letters only) {$elementsArr['name']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="name" name="name" value="{$elementsArr['name']['value']}">
+                    <input name="name" id="name" type="text" class="form-control" value="{$elementsArr['name']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="address">Address (number and street only) {$elementsArr['address']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="address" name="address" value="{$elementsArr['address']['value']}">
+                    <input name="address" id="address" type="text" class="form-control" value="{$elementsArr['address']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="city">City {$elementsArr['city']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="city" name="city" value="{$elementsArr['city']['value']}">
+                    <input name="city" id="city" type="text" class="form-control" value="{$elementsArr['city']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="state">State</label>
-                    <select class="form-control" id="state" name="state">
+                    <select name="state" id="state" class="form-control">
                         $options
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone {$elementsArr['phone']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="phone" name="phone" value="{$elementsArr['phone']['value']}">
+                    <input name="phone" id="phone" type="text" class="form-control" value="{$elementsArr['phone']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="email-address">Email {$elementsArr['email']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{$elementsArr['email']['value']}">
+                    <input name="email" id="email" type="text" class="form-control" value="{$elementsArr['email']['value']}">
                 </div>
                 <div class="form-group">
                     <label for="DOB">Date of Birth (MM/DD/YYYY) {$elementsArr['date']['errorOutput']}</label>
-                    <input type="text" class="form-control" id="date" name="date" value="{$elementsArr['date']['value']}">
+                    <input name="date" id="date" type="text" class="form-control" value="{$elementsArr['date']['value']}">
                 </div>
                 <p>Please check all contact options (Optional): {$elementsArr['contactMethod']['errorOutput']}</p>
                 <span>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="contactMethod[]" id="contactMethod1" value="Newsletter" {$elementsArr['contactMethod']['status']['Newsletter']}>
+                        <input name="contactMethod[]" id="contactMethod1" class="form-check-input" type="checkbox" value="Newsletter" {$elementsArr['contactMethod']['status']['Newsletter']}>
                         <label class="form-check-label" for="contactMethod1">Newsletter</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="contactMethod[]" id="contactMethod2" value="Email" {$elementsArr['contactMethod']['status']['Email']}>
+                        <input name="contactMethod[]" id="contactMethod2" class="form-check-input" type="checkbox" value="Email" {$elementsArr['contactMethod']['status']['Email']}>
                         <label class="form-check-label" for="contactMethod2">Email Updates</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="contactMethod[]" id="contactMethod3" value="SMS" {$elementsArr['contactMethod']['status']['SMS']}>
+                        <input name="contactMethod[]" id="contactMethod3" class="form-check-input" type="checkbox" value="SMS" {$elementsArr['contactMethod']['status']['SMS']}>
                         <label class="form-check-label" for="contactMethod3">Text Updates</label>
                     </div>
                 </span>
                 <p class="padtop">Please select an age range (Required): {$elementsArr['ageGroup']['errorOutput']}</p>
                 <span>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageGroup" id="ageGroup1" value="10-18" {$elementsArr['ageGroup']['value']['10-18']}>
+                        <input name="ageGroup" id="ageGroup1" class="form-check-input" type="radio" value="10-18" {$elementsArr['ageGroup']['value']['10-18']}>
                         <label class="form-check-label" for="ageGroup1">10-18</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageGroup" id="ageGroup2" value="19-30" {$elementsArr['ageGroup']['value']['19-30']}>
+                        <input name="ageGroup" id="ageGroup2" class="form-check-input" type="radio" value="19-30" {$elementsArr['ageGroup']['value']['19-30']}>
                         <label class="form-check-label" for="ageGroup2">19-30</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageGroup" id="ageGroup3" value="30-50" {$elementsArr['ageGroup']['value']['30-50']}>
+                        <input name="ageGroup" id="ageGroup3" class="form-check-input" type="radio" value="30-50" {$elementsArr['ageGroup']['value']['30-50']}>
                         <label class="form-check-label" for="ageGroup3">30-50</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="ageGroup" id="ageGroup4" value="51+" {$elementsArr['ageGroup']['value']['51+']}>
+                        <input name="ageGroup" id="ageGroup4" class="form-check-input" type="radio" value="51+" {$elementsArr['ageGroup']['value']['51+']}>
                         <label class="form-check-label" for="ageGroup4">51+</label>
                     </div>
                 </span>
                 <div class="padtop">
-                    <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                    <button name="submit" type="submit" class="btn btn-success">Submit</button>
                 </div>
             </form>
         HTML;

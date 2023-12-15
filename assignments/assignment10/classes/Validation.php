@@ -17,9 +17,9 @@ class Validation {
         if (count($records) != 0) {
             if (password_verify($post['password'], $records[0]['admin_password'])) {
                 session_start();
+                $_SESSION['status'] = $records[0]['admin_status'];
                 $_SESSION['access'] = "accessGranted";
                 $_SESSION['name'] = $records[0]['admin_name'];
-                $_SESSION['status'] = $records[0]['admin_status'];
                 return "success"; // 
             } else {
                 return "<p class='errorMsg'>Wrong credentials.</p>"; // Password doesn't match
@@ -40,11 +40,11 @@ class Validation {
     public function checkFormat($value, $regex) {
         switch($regex) {
             case "name": return $this->validateName($value); break;
+            case "email": return $this->validateEmail($value); break;
+            case "password": return $this->validatePassword($value); break;
             case "phone": return $this->validatePhone($value); break;
             case "address": return $this->validateAddress($value); break;
-            case "email": return $this->validateEmail($value); break;
             case "date": return $this->validateDate($value); break;
-            case "password": return $this->validatePassword($value); break;
             case "nonBlank": return $this->validateNonBlank($value); break;
         }
     }

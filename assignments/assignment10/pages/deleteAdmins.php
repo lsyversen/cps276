@@ -22,9 +22,9 @@
                 
                 // Loop through selected checkboxes and delete corresponding admins
                 foreach($_POST['chkbx'] as $id){
-                    $pdo = new PdoMethods();
-                    $sql = "DELETE FROM admins WHERE admin_id=:id";
                     $bindings = [[':id', $id, 'int'],];
+                    $sql = "DELETE FROM admins WHERE admin_id=:id";
+                    $pdo = new PdoMethods();
     
                     // Perform the delete operation
                     $result = $pdo->otherBinded($sql, $bindings);
@@ -42,9 +42,9 @@
         }    
         
         // Retrieve all admin records
+        $sql = "SELECT * FROM admins";
         $pdo = new PdoMethods(); 
         $output = ""; 
-        $sql = "SELECT * FROM admins";
         $records = $pdo->selectNotBinded($sql);
 
         if(count($records) === 0){
@@ -54,7 +54,7 @@
         }else{
             // Display the admin records in a form with checkboxes
             $output = "<form method='post' action='index.php?page=deleteAdmins'>";
-            $output .= "<input type='submit' class='btn btn-danger' name='delete' value='Delete'/><br><br>
+            $output .= "<input name='delete' value='Delete' type='submit' class='btn btn-danger'/><br><br>
             <table class='table table-striped table-bordered'>
                 <thead><tr>
                     <th>Name</th>

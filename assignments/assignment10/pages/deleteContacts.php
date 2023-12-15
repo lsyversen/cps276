@@ -25,8 +25,8 @@
                 // Loop through selected checkboxes and delete corresponding contacts
                 foreach($_POST['chkbx'] as $id){
                     // Create a PDO instance
-                    $pdo = new PdoMethods();
                     $sql = "DELETE FROM contacts WHERE contact_id=:id";
+                    $pdo = new PdoMethods();
                     $bindings = [[':id', $id, 'int'],];
     
                     // Perform the delete operation
@@ -45,9 +45,9 @@
         }    
 
         // Retrieve all contact records
+        $sql = "SELECT * FROM contacts";
         $pdo = new PdoMethods(); 
         $output = "";
-        $sql = "SELECT * FROM contacts";
         
         // Fetch records after deletion
         $records = $pdo->selectNotBinded($sql);
@@ -59,7 +59,7 @@
         }else{
             // Display a form with contact records and checkboxes
             $output = "<form method='post' action='index.php?page=deleteContacts'>";
-            $output .= "<input type='submit' class='btn btn-danger' name='delete' value='Delete'/><br><br>
+            $output .= "<input name='delete' value='Delete'type='submit' class='btn btn-danger'/><br><br>
             <table class='table table-striped table-bordered'>
                 <thead><tr>
                     <th>Name</th>
