@@ -8,43 +8,43 @@
 
     // Function to add data to the database
     function addData($post){
-    global $elementsArr;
+        global $elementsArr;
 
-    // Include Pdo_methods class
-    require_once('classes/Pdo_methods.php');
-    $pdo = new PdoMethods();
+        // Include Pdo_methods class
+        require_once('classes/Pdo_methods.php');
+        $pdo = new PdoMethods();
 
-    // SQL query for inserting data into the database
-    $sql = "INSERT INTO contacts (contact_name, contact_address, contact_city, contact_state, contact_phone, contact_email, contact_DOB, contact_contacts, contact_age) VALUES (:name, :address, :city, :state, :phone, :email, :DOB, :contacts, :age)";
+        // SQL query for inserting data into the database
+        $sql = "INSERT INTO contacts (contact_name, contact_address, contact_city, contact_state, contact_phone, contact_email, contact_DOB, contact_contacts, contact_age) VALUES (:name, :address, :city, :state, :phone, :email, :DOB, :contacts, :age)";
 
-    // Prepare data for binding
-    if(isset($post['contactMethod'])){
-        $contactMethods = implode("<br>", $post['contactMethod']);
-    }else{
-        $contactMethods = "no contact";
-    }
+        // Prepare data for binding
+        if(isset($post['contactMethod'])){
+            $contactMethods = implode("<br>", $post['contactMethod']);
+        }else{
+            $contactMethods = "no contact";
+        }
 
-    $bindings = [
-        [':name', $post['name'], 'str'],
-        [':address', $post['address'], 'str'],
-        [':city', $post['city'], 'str'],
-        [':state', $post['state'], 'str'],
-        [':phone', $post['phone'], 'str'],
-        [':email', $post['email'], 'str'],
-        [':DOB', $post['date'], 'str'],
-        [':contacts', $contactMethods, 'str'],
-        [':age', $post['ageGroup'], 'str']
-    ];
+        $bindings = [
+            [':name', $post['name'], 'str'],
+            [':address', $post['address'], 'str'],
+            [':city', $post['city'], 'str'],
+            [':state', $post['state'], 'str'],
+            [':phone', $post['phone'], 'str'],
+            [':email', $post['email'], 'str'],
+            [':DOB', $post['date'], 'str'],
+            [':contacts', $contactMethods, 'str'],
+            [':age', $post['ageGroup'], 'str']
+        ];
 
-    // Execute the SQL query with the provided data
-    $result = $pdo->otherBinded($sql, $bindings);
+        // Execute the SQL query with the provided data
+        $result = $pdo->otherBinded($sql, $bindings);
 
-    // Check the result and return appropriate form
-    if($result == "error"){
-        return getForm("<p class='errorMsg'>There was an error processing your form</p>", $elementsArr);
-    }else{
-        return getForm("<p class='successMsg'>Contact Added</p>", $elementsArr);
-    }
+        // Check the result and return appropriate form
+        if($result == "error"){
+            return getForm("<p class='errorMsg'>There was an error processing your form</p>", $elementsArr);
+        }else{
+            return getForm("<p class='successMsg'>Contact Added</p>", $elementsArr);
+        }
     }
 
     // Initialize the form
@@ -78,7 +78,7 @@
             "type"=>"masterStatus"
         ],
         "name"=>[
-            "errorMessage"=>"<span class='errorMsg'>Name must be provided and adhere to standard naming conventions</span>",
+            "errorMessage"=>"<span class='errorMsg'>Please enter a valid name.</span>",
             "value"=>"Liam Syversen",
             "errorOutput"=>"",
             "type"=>"text",
