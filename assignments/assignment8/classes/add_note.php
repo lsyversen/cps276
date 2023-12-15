@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['dateTime']) && !empt
     $noteContent = $_POST['noteContent'];
     $note->addNote($timestamp, $noteContent);
 }
-?>
+?>s
 
 <!DOCTYPE html>
 <html lang="en">
