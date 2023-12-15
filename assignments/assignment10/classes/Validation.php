@@ -20,7 +20,7 @@ class Validation {
                 $_SESSION['access'] = "accessGranted";
                 $_SESSION['name'] = $records[0]['admin_name'];
                 $_SESSION['status'] = $records[0]['admin_status'];
-                return "success"; // This shouldn't ever show up
+                return "success"; // 
             } else {
                 return "<p class='errorMsg'>Wrong credentials.</p>"; // Password doesn't match
             }
